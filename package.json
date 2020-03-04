@@ -1,17 +1,42 @@
 {
+    "version": "1.0.0",
+    "name": "antos",
+    "author": "matrixage",
+    "license": "MIT",
     "private": true,
+    "main": "src/pages/index.tsx",
+    "description": "A admin which is simple & practical for the enterprise.",
+    "keywords": [
+        "web",
+        "react",
+        "react hooks",
+        "js",
+        "javascript",
+        "umi",
+        "umijs",
+        "antd",
+        "ant design",
+        "admin",
+        "dashboard"
+    ],
     "scripts": {
         "start": "umi dev",
         "build": "umi build",
-        "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
         "test": "umi-test",
         "test:coverage": "umi-test --coverage"
     },
     "dependencies": {
-        "@umijs/preset-react": "1.x",
+        "@umijs/preset-react": "^1.3.2",
         "@umijs/test": "^3.0.2",
+        "dva-model-extend": "^0.1.2",
+        "moment": "^2.24.0",
+        "qs": "^6.9.1",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
-        "umi": "^3.0.2"
+        "umi": "^3.0.0-beta.38"
+    },
+    "devDependencies": {
+        "@umijs/plugin-webpack-5": "^0.1.3",
+        "less-vars-to-js": "^1.3.0"
     }
 }
