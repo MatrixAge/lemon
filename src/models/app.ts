@@ -13,7 +13,6 @@ export default {
 
       effects: {
             *query({ }, { }) {
-                  console.log(123456)
             },
       }
 }
