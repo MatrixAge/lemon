@@ -1,0 +1,8 @@
+{
+    "path-autocomplete.pathMappings": {
+        "@": "${folder}/src"
+    },
+    "path-intellisense.mappings": {
+        "@": "${workspaceRoot}/src"
+    }
+}
