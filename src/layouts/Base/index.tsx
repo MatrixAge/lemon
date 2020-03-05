@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { withRouter, connect, setLocale, useIntl } from 'umi'
-import config from '@/config/site'
+import styles from './index.less'
 
 const Index = ( props: any ) => {
       const { app, children, location: { pathname } } = props
@@ -21,12 +21,35 @@ const Index = ( props: any ) => {
             }
       }
 
+      const onChangeTheme = ( e ) => {
+            const { key } = e.target.dataset
+
+            if ( !key ) return
+
+            switch ( key ) {
+                  case 'default':
+                        document.body.style.setProperty( '--primary-color', 'blue' )
+
+                        break
+                  case 'dark':
+                        document.body.style.setProperty( '--primary-color', 'red' )
+
+                        break
+            }
+      }
+
+
       return (
             <Fragment>
+                  <div className={ styles.test }>test</div>
                   <span>{ formatMessage( { id: 'WELCOME' } ) }</span>
                   <div className="flex" onClick={ onChangeLanguage }>
                         <button data-key='en'>EN</button>
                         <button data-key='cn'>CN</button>
+                  </div>
+                  <div className="flex" onClick={ onChangeTheme }>
+                        <button data-key='default'>default</button>
+                        <button data-key='dark'>dark</button>
                   </div>
                   { children }
             </Fragment>

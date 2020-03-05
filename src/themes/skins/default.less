@@ -1,6 +1,8 @@
 // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
 
-@theme: default;
+:root {
+      --primary-color: black;
+}
 
 @border-radius-base: 6px;
 @border-radius-sm: 6px;
@@ -14,7 +16,7 @@
 @error-color: #f5222d;
 @text-color: #000;
 @hover-color: #eee;
-@primary-color: #1890ff;
+@primary-color: var(--primary-color);
 @table-row-hover-bg: white;
 
 @dark-half: #494949;
@@ -25,6 +27,7 @@
 @transition-ease-out: all 0.3s ease-out;
 @ease-in: ease-in;
 
+//custom
 @secondary-color: #1f6db6;
 @color_background: #f8f9fd;
 @color_border_section: #d4dadf;
@@ -39,13 +42,3 @@
 @box_shadow_unit: 0px 0px 30px rgb(212, 168, 168);
 @border_section: 1px solid @color_border_section;
 @border_divide: 1px solid @color_border_divide;
-
-:global {
-    .color_primary {
-        color: #1890ff;
-    }
-
-    .bg_color_primary {
-        background-color: #1890ff;
-    }
-}

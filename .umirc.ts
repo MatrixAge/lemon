@@ -1,9 +1,7 @@
 import path from 'path'
 import { defineConfig } from 'umi'
-import THEME from './src/styles/theme/theme.config'
 
 export default defineConfig( {
-      theme: THEME,
       antd: {},
       cssnano: {},
       dynamicImport: {},
@@ -17,5 +15,5 @@ export default defineConfig( {
                         "node_modules/moment/moment.js"
                   )
             )
-      }
+      },
 } )
