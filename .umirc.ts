@@ -1,11 +1,21 @@
+import path from 'path'
 import { defineConfig } from 'umi'
 import THEME from './src/styles/theme/theme.config'
 
-export default defineConfig({
+export default defineConfig( {
       theme: THEME,
-      title: 'site.title',
-      dva: { immer: true, hmr: true, },
-      locale: { antd: true },
       antd: {},
+      cssnano: {},
       dynamicImport: {},
-})
+      locale: { antd: true },
+      dva: { immer: true, hmr: true, },
+      chainWebpack ( memo ) {
+            memo.resolve.alias.set(
+                  'moment$',
+                  path.resolve(
+                        __dirname,
+                        "node_modules/moment/moment.js"
+                  )
+            )
+      }
+} )

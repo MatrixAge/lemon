@@ -1,4 +1,4 @@
 export default {
       WELCOME: 'welcome',
-      'site.title': 'site - title'
+      'site.title':'en_title'
 }
