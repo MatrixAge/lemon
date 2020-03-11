@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Index = () => {
-      return <div className="flex">index</div>
+	return <div>dashboard</div>
 }
 
 export default Index

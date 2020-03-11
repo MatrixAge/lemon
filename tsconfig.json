@@ -1,22 +1,25 @@
 {
-    "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "importHelpers": true,
-        "jsx": "react",
-        "esModuleInterop": true,
-        "sourceMap": true,
-        "baseUrl": ".",
-        "strict": false,
-        "paths": {
-            "@/*": [
-                "./src/*"
-            ],
-            "@@/*": [
-                "./src/.umi/*"
-            ]
-        },
-        "allowSyntheticDefaultImports": true
-    }
+      "compilerOptions": {
+            "target": "esnext",
+            "module": "esnext",
+            "moduleResolution": "node",
+            "importHelpers": true,
+            "jsx": "react",
+            "esModuleInterop": true,
+            "sourceMap": true,
+            "baseUrl": ".",
+            "strict": false,
+            "paths": {
+                  "R/*": [
+                        "./*"
+                  ],
+                  "@/*": [
+                        "./src/*"
+                  ],
+                  "@@/*": [
+                        "./src/.umi/*"
+                  ]
+            },
+            "allowSyntheticDefaultImports": true
+      }
 }

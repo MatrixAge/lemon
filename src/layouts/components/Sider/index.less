@@ -1,0 +1,148 @@
+._local {
+      height: 100vh;
+      z-index: 10;
+      background: transparent linear-gradient(80deg, var(--secondary-color) 1%, var(--primary-color) 99%) repeat scroll 0% 0%;
+
+      :global {
+            .side_footer {
+                  height: 40px;
+                  color: var(--color_unimportant_2);
+                  opacity: 0.3;
+            }
+
+            .ant-layout-sider-children {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+            }
+
+            .ant-menu {
+                  background-color: transparent;
+
+                  a {
+                        color: white;
+                        opacity: 0.6;
+                  }
+
+                  .ant-menu-submenu-title {
+                        color: white;
+                        opacity: 0.6;
+                  }
+
+                  .ant-menu-submenu-arrow::before,
+                  .ant-menu-submenu-arrow::after {
+                        color: white;
+                        background-image: none;
+                  }
+
+                  .ant-menu-sub {
+                        background-color: transparent;
+                  }
+
+                  .ant-menu-item-selected {
+                        background-color: rgba(0, 0, 0, 0.1);
+
+                        a {
+                              opacity: 1;
+                        }
+                  }
+
+                  .ant-menu-item .anticon,
+                  .ant-menu-submenu-title .anticon {
+                        margin-right: 10px;
+                  }
+            }
+
+            .ant-menu-vertical .ant-menu-item::after,
+            .ant-menu-vertical-left .ant-menu-item::after,
+            .ant-menu-vertical-right .ant-menu-item::after,
+            .ant-menu-inline .ant-menu-item::after {
+                  border-right: none;
+            }
+
+            .ant-menu-vertical .ant-menu-item::after,
+            .ant-menu-vertical-left .ant-menu-item::after,
+            .ant-menu-vertical-right .ant-menu-item::after,
+            .ant-menu-inline .ant-menu-item::before {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  bottom: 0;
+                  border-left: 3px solid white;
+                  -ms-transform: scaleY(0.0001);
+                  transform: scaleY(0.0001);
+                  opacity: 0;
+                  transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+                  content: '';
+            }
+
+            .ant-menu-inline .ant-menu-selected::after,
+            .ant-menu-inline .ant-menu-item-selected::before {
+                  transform: scaleY(1);
+                  opacity: 1;
+                  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+            }
+
+            .ant-menu-inline,
+            .ant-menu-vertical,
+            .ant-menu-vertical-left {
+                  border-right: none;
+            }
+      }
+}
+
+.brand {
+      z-index: 1;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+
+      .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                  transition: all ease 0.3s;
+            }
+      }
+}
+
+.container {
+      height: ~'calc(100vh - 150px)';
+      overflow-x: hidden;
+      overflow-y: scroll;
+      flex: 1;
+      padding: 0;
+
+      &::-webkit-scrollbar-thumb {
+            background-color: transparent;
+      }
+
+      &:hover {
+            &::-webkit-scrollbar-thumb {
+                  background-color: rgba(0, 0, 0, 0.2);
+            }
+      }
+
+      :global {
+            .ant-menu-inline {
+                  border-right: none;
+            }
+      }
+}
+
+@keyframes fadeLeftIn {
+      0% {
+            transform: translateX(5px);
+            opacity: 0;
+      }
+
+      100% {
+            transform: translateX(0);
+            opacity: 1;
+      }
+}

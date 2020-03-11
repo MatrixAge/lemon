@@ -1,8 +1,19 @@
-import React from 'react'
-import Base from './Base'
+import React, { memo, Fragment } from 'react'
+import { Helmet } from 'react-helmet'
+import Layout from './Layout'
+import config from '../../config/config'
 
-const Index = (props) => (
-      <Base>{props.children}</Base>
-)
+const Index = (props: any) => {
+	const { children } = props
 
-export default Index
+	return (
+		<Fragment>
+			<Helmet>
+				<title>{config.name}</title>
+			</Helmet>
+			<Layout>{children}</Layout>
+		</Fragment>
+	)
+}
+
+export default memo(Index)

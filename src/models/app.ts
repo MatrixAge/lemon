@@ -1,18 +1,24 @@
+import store from 'store'
+import { Service_getRouteList } from '@/services/app'
+
 export default {
-      namespace: 'app',
+	namespace: 'app',
 
-      state: {
-            locale: 'en'
-      },
+	state: {
+		fold: false
+	},
 
-      subscriptions: {
-            setup({ dispatch }) {
-                  dispatch({ type: 'query' })
-            },
-      },
+	subscriptions: {
+		setup ({ dispatch }) {
+			dispatch({ type: 'query' })
+		}
+	},
 
-      effects: {
-            *query({ }, { }) {
-            },
-      }
+	effects: {
+		*query ({}, { call }) {
+			const res = yield call(Service_getRouteList)
+
+			store.set('menu', res)
+		}
+	}
 }

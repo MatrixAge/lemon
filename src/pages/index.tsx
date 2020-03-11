@@ -1,4 +1,4 @@
 import React from 'react'
 import { Redirect } from 'umi'
 
-export default () => <Redirect to='/index'></Redirect>
+export default () => <Redirect to='/dashboard' />
