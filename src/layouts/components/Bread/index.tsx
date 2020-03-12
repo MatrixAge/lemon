@@ -43,8 +43,6 @@ const Index = (props: any) => {
 	// 	}
 	// }
 
-	console.log(currentRoute)
-
 	const paths = currentRoute
 		? queryAncestors(menu, currentRoute, 'pid').reverse()
 		: [

@@ -3,7 +3,11 @@ import { Layout, Avatar, Dropdown, Menu } from 'antd'
 import { Icon } from '@ant-design/compatible'
 import styles from './index.less'
 
-const Index = ({ fold }) => {
+const { Header } = Layout
+
+const Index = (props: any) => {
+	const { fold, onChangeFold } = props
+
 	const menu = (
 		<Menu className={styles.menu}>
 			<Menu.Item key='0'>
@@ -55,17 +59,17 @@ const Index = ({ fold }) => {
 	)
 
 	return (
-		<Layout.Header
+		<Header
 			className={`
                         ${styles.header} 
                         ${fold ? styles.fold : ''}
                   `}
 			id='layoutHeader'
 		>
-			<div className={styles.button}>
+			<div className={styles.button} onClick={onChangeFold}>
 				<Icon type={`${fold ? 'menu-unfold' : 'menu-fold'}`} />
 			</div>
-			<div className={styles.rightContainer}>
+			<div className={styles.right}>
 				<Dropdown overlay={menu} trigger={[ 'click' ]} placement='bottomRight'>
 					<div className='avatar flex justify_center align_center'>
 						<Avatar
@@ -76,7 +80,7 @@ const Index = ({ fold }) => {
 					</div>
 				</Dropdown>
 			</div>
-		</Layout.Header>
+		</Header>
 	)
 }
 

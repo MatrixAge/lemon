@@ -7,17 +7,18 @@ import styles from './index.less'
 const { Content } = Layout
 
 const Index = (props: any) => {
-	const { children, menu, fold } = props
+	const { children, menu, fold, onChangeFold } = props
 
 	const [ state_fix_breadcrumb, setStateFixBreadcrumb ] = useState(false)
 	const container: any = useRef()
 
 	const props_header = {
-		fold
+		fold,
+		onChangeFold
 	}
 
-	const onScrollContainer = () => {
-		setStateFixBreadcrumb(container.scrollTop > 60)
+      const onScrollContainer = () => {
+		setStateFixBreadcrumb(container.current.scrollTop > 60)
 	}
 
 	return (

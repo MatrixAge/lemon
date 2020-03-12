@@ -11,8 +11,6 @@ const Index = (props: any) => {
 	const { fold, menu, location } = props
 	const [ openKeys, setOpenKeys ] = useState(store.get('openKeys') || [])
 
-	console.log(menu)
-
 	const onOpenChange = (openKeys) => {
 		const rootSubmenuKeys = menu
 			.filter((item) => !String(item.pid))
@@ -74,6 +72,7 @@ const Index = (props: any) => {
 			mode='inline'
 			onOpenChange={onOpenChange}
 			selectedKeys={selectedKeys}
+			inlineCollapsed={fold}
 			{...props_menu}
 		>
 			{generateMenus(arrayToTree(menu, 'id', 'pid'))}

@@ -6,7 +6,9 @@ body {
       background-color: @color_background;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       scroll-behavior: smooth;
+      line-height: 1.5;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -75,10 +77,33 @@ body {
       }
 }
 
-.filter_items {
-      .filter_item {
-            margin-right: 12px;
-            margin-bottom: 16px;
+.filter {
+      .filter_items {
+            .filter_item {
+                  margin-right: 12px;
+                  margin-bottom: 16px;
+            }
+      }
+
+      .option_items {
+            .option_item {
+                  margin-right: 12px;
+                  margin-bottom: 16px;
+            }
+      }
+
+      .ant-form-item {
+            margin-bottom: 0;
+      }
+}
+
+.ant-select-dropdown {
+      .backdrop_blur();
+}
+
+.ant-picker-dropdown {
+      .ant-picker-panel-container {
+            .backdrop_blur();
       }
 }
 
@@ -96,17 +121,6 @@ body {
       border: 1px solid @color_border_divide;
       border-radius: 100px;
       cursor: pointer;
-}
-
-.ant-table-thead>tr>th,
-.ant-table-tbody>tr>td {
-      .ant-checkbox-inner {
-            border: 1px solid #ccc;
-      }
-
-      .ant-radio-inner {
-            border: 1px solid #ccc;
-      }
 }
 
 .ant-spin-nested-loading>div>.ant-spin {
@@ -239,69 +253,87 @@ body {
       }
 }
 
-.ant-table .ant-table-thead>tr>th {
-      background-color: transparent;
-}
-
 .ant-table {
-      table {
-            border-collapse: separate;
-            border-spacing: 0 4px;
-      }
+      background-color: transparent !important;
 
-      .ant-table-fixed {
-            background-color: transparent;
+      .ant-table-container {
+            table {
+                  border-collapse: separate;
+                  border-spacing: 0 4px;
+            }
 
-            .ant-table-thead {
+            .ant-table-fixed {
+                  background-color: transparent;
+
+                 
+            }
+
+            thead {
                   tr {
-                        height: 37px !important;
+                        height: 48px !important;
+
+                        th {
+                              position: sticky;
+                              top: 72px;
+                              z-index: 10;
+                              height: auto;
+                              text-align: center;
+                              font-weight: normal;
+                              border-right: none;
+                              border-bottom: none;
+                              color: @color_unimportant_1;
+                              white-space: nowrap;
+                              padding-top: 10px;
+                              padding-bottom: 0px;
+                              background-color: @color_background;
+                        }
                   }
             }
-      }
 
-      .ant-table-thead>tr>th {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            height: auto;
-            text-align: center;
-            border-right: none;
-            border-bottom: none;
-            color: @color_unimportant_1;
-            white-space: nowrap;
-            padding-top: 10px;
-            padding-bottom: 0px;
-            background-color: @color_background;
-      }
+            thead>tr>th,
+            tbody>tr>td {
+                  .ant-checkbox-inner {
+                        border: 1px solid #ccc;
+                  }
 
-      .ant-table-tbody>tr>td {
-            text-align: center;
-            border-right: none;
-            border-bottom: none;
-            background-color: white;
-            border: none;
-            word-wrap: break-word;
-            word-break: break-all;
-      }
+                  .ant-radio-inner {
+                        border: 1px solid #ccc;
+                  }
+            }
 
-      .ant-table-tbody>tr>td:first-child {
-            border-top-left-radius: @radius_normal;
-            border-bottom-left-radius: @radius_normal;
-      }
+            tbody>tr>td {
+                  text-align: center;
+                  border-right: none;
+                  border-bottom: none;
+                  background-color: white;
+                  border: none;
+                  word-wrap: break-word;
+                  word-break: break-all;
+            }
 
-      .ant-table-tbody>tr>td:last-child {
-            border-top-right-radius: @radius_normal;
-            border-bottom-right-radius: @radius_normal;
-      }
+            tbody>tr>td:first-child {
+                  border-top-left-radius: @radius_normal;
+                  border-bottom-left-radius: @radius_normal;
+            }
 
-      .ant-table-tbody>tr:hover {
-            box-shadow: @box_shadow_unit;
-            border-radius: @radius_normal;
-      }
+            tbody>tr>td:last-child {
+                  border-top-right-radius: @radius_normal;
+                  border-bottom-right-radius: @radius_normal;
+            }
 
-      &.ant-table-small {
-            .ant-table-body>table {
-                  padding: 0;
+            tbody>tr {
+                  transition: all ease 0.3s;
+
+                  &:hover {
+                        box-shadow: @box_shadow_unit;
+                        border-radius: @radius_normal;
+                  }
+            }
+
+            &.ant-table-small {
+                  .ant-table-body>table {
+                        padding: 0;
+                  }
             }
       }
 }
@@ -351,34 +383,4 @@ a:focus {
 
 .drop-over-upward td {
       border-top: 2px dashed #1890ff !important;
-}
-
-@media (min-width: 1600px) {
-      .ant-col-xl-48 {
-            width: 20%;
-      }
-
-      .ant-col-xl-96 {
-            width: 40%;
-      }
-}
-
-@media (max-width: 767px) {
-
-      .ant-pagination-item,
-      .ant-pagination-next,
-      .ant-pagination-options,
-      .ant-pagination-prev {
-            margin-bottom: 8px;
-      }
-
-      .ant-card {
-            .ant-card-head {
-                  padding: 0 12px;
-            }
-
-            .ant-card-body {
-                  padding: 12px;
-            }
-      }
 }

@@ -6,10 +6,19 @@ import Container from '../components/Container'
 import store from 'store'
 
 const Index = (props) => {
-	const { children, app } = props
+	const { children, app, dispatch } = props
 	const { fold } = app
 
 	const menu = store.get('menu') || []
+
+	const onChangeFold = () => {
+		dispatch({
+			type: 'app/updateState',
+			payload: {
+				fold: !fold
+			}
+		})
+	}
 
 	const props_sider = {
 		fold,
@@ -18,7 +27,8 @@ const Index = (props) => {
 
 	const props_container = {
 		fold,
-		menu
+		menu,
+		onChangeFold
 	}
 
 	return (

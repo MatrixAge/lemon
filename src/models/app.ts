@@ -20,5 +20,14 @@ export default {
 
 			store.set('menu', res)
 		}
+	},
+
+	reducers: {
+		updateState (state, { payload }) {
+			return {
+				...state,
+				...payload
+			}
+		}
 	}
 }

@@ -1,7 +1,10 @@
 import path, { resolve } from 'path'
 import { defineConfig } from 'umi'
+import { defineConfig as defineRouterPlusConfig } from 'umi-plugin-router-plus'
+import THEME from './src/themes/theme.config';
 
 export default defineConfig({
+      theme:THEME,
 	antd: {},
 	cssnano: {},
 	locale: { antd: true },
@@ -9,12 +12,15 @@ export default defineConfig({
 	dva: { immer: true, hmr: true },
 	alias: { R: resolve(__dirname, './') },
 	dynamicImport: { loading: '@/components/Loader/index' },
+	...defineRouterPlusConfig({
+		transformDollarSignToColonOnRoutePaths: true
+	}),
 	extraBabelPlugins: [
 		[
 			'import',
 			{
-				libraryName: 'lodash',
-				libraryDirectory: '',
+                        libraryName: 'lodash',
+                        libraryDirectory: '',
 				camel2DashComponentName: false
 			}
 		]

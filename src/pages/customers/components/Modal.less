@@ -1,0 +1,31 @@
+._local {
+      :global {
+            .ant-modal-body {
+                  max-height: 80vh;
+                  overflow-y: scroll;
+            }
+
+            .ant-input[disabled],
+            .ant-input-number-disabled {
+                  background-color: white;
+                  color: black;
+            }
+
+            .ant-radio-disabled+span {
+                  color: black;
+            }
+
+            .ant-radio-disabled .ant-radio-inner {
+                  background-color: white;
+                  border-color: whitesmoke !important;
+            }
+
+            .ant-radio-checked .ant-radio-inner {
+                  border-color: var(--color_main) !important;
+            }
+
+            .ant-radio-disabled .ant-radio-inner:after {
+                  background-color: var(--color_main);
+            }
+      }
+}

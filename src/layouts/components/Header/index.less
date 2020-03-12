@@ -1,5 +1,6 @@
 .menu {
       width: 260px;
+      border-radius: var(--radius_normal);
 
       :global {
             .ant-dropdown-menu {
@@ -29,64 +30,23 @@
       }
 }
 
-.message_wrap {
-      width: 360px;
-      height: 500px;
-
-      :global {
-            .message_options_wrap {
-                  height: 44px;
-            }
-
-            .message_content_wrap {
-                  height: 410px;
-                  overflow-y: scroll;
-                  padding: 20px 0;
-
-                  .message_items {
-                        .message_item {
-                              padding: 20px 0;
-                              border-bottom: 1px solid whitesmoke;
-
-                              .left_wrap {
-                                    width: ~'calc(100% - 100px)';
-                              }
-
-                              .btn_wrap {
-                                    width: 100px;
-                              }
-                        }
-                  }
-            }
-
-            .footer_options_wrap {
-                  height: 40px;
-            }
-      }
-}
-
 .header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: ~'calc(100% - 180px)';
+      height: 72px;
       padding: 0;
-      position: relative;
+      z-index: 29;
       display: flex;
       justify-content: space-between;
-      height: 72px;
-      z-index: 9;
       align-items: center;
       box-sizing: border-box;
       background-color: var(--color_background);
+      transition: all ease 0.2s;
 
-      &.fixed {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: ~'calc(100% - 180px)';
-            z-index: 29;
-            transition: width 0.2s;
-
-            &.collapsed {
-                  width: ~'calc(100% - 80px)';
-            }
+      &.fold {
+            width: ~'calc(100% - 80px)';
       }
 
       :global {
@@ -161,9 +121,15 @@
             }
       }
 
-      .rightContainer {
+      .right {
             display: flex;
             align-items: center;
+
+            :global {
+                  .avatar {
+                        border-radius: var(--radius_normal);
+                  }
+            }
       }
 
       .button {
@@ -176,34 +142,10 @@
             cursor: pointer;
             transition: var(--transition-ease-in);
             margin-left: 48px;
+            transition: all ease 0.3s;
 
             &:hover {
                   background-color: var(--hover-color);
             }
-      }
-}
-
-.iconButton {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 24px;
-      cursor: pointer;
-
-      &:hover {
-            .iconFont {
-                  color: var(--primary-color);
-            }
-      }
-
-      &+.iconButton {
-            margin-left: 8px;
-      }
-
-      .iconFont {
-            color: #b2b0c7;
-            font-size: 24px;
       }
 }
