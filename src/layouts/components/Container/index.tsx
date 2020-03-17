@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { memo, useState, useRef } from 'react'
 import { Layout, BackTop } from 'antd'
 import Header from '../Header'
 import Bread from '../Bread'
@@ -17,7 +17,7 @@ const Index = (props: any) => {
 		onChangeFold
 	}
 
-      const onScrollContainer = () => {
+	const onScrollContainer = () => {
 		setStateFixBreadcrumb(container.current.scrollTop > 60)
 	}
 
@@ -44,4 +44,4 @@ const Index = (props: any) => {
 	)
 }
 
-export default Index
+export default memo(Index)

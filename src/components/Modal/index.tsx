@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Modal } from 'antd'
 
 const Index = (props: any) => {
-      const { children } = props
-      
+	const { children } = props
+
 	const props_preset = {
 		destroyOnClose: true,
 		maskClosable: false,
@@ -17,4 +17,4 @@ const Index = (props: any) => {
 	)
 }
 
-export default Index
+export default memo(Index)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'umi'
 import { Layout } from 'antd'
 import Menu from '../Menu'
@@ -40,4 +40,4 @@ const Index = (props: any) => {
 	)
 }
 
-export default Index
+export default memo(Index)

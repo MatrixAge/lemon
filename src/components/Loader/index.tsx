@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { connect } from 'umi'
 import styles from './index.less'
 
@@ -22,4 +22,4 @@ const Index = (props: any) => {
 	)
 }
 
-export default connect(({ app }: any) => ({ app }))(Index)
+export default memo(connect(({ app }: any) => ({ app }))(Index))

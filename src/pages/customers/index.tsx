@@ -1,11 +1,12 @@
 import React from 'react'
-import { connect, navigateTo } from 'umi'
+import { connect } from 'umi'
 import Page from '@/components/Page'
 import List from './components/List'
 import Filter from './components/Filter'
 import Modal from './components/Modal'
 
-const Index = ({ customers, dispatch, loading, location }) => {
+const Index = (props: any) => {
+	const { customers, history, location, loading, dispatch } = props
 	const {
 		list,
 		pagination,
@@ -18,10 +19,13 @@ const Index = ({ customers, dispatch, loading, location }) => {
 	const props_filter = {
 		filter: query,
 		onFilterChange: (value) => {
-			navigateTo(pathname, {
-				...value,
-				pageNo: 1,
-				pageSize: pagination.pageSize
+			history.push({
+				pathname,
+				query: {
+					...value,
+					pageNo: 1,
+					pageSize: pagination.pageSize
+				}
 			})
 		}
 	}
@@ -30,10 +34,13 @@ const Index = ({ customers, dispatch, loading, location }) => {
 		pagination,
 		dataSource: list,
 		onChange (page) {
-			navigateTo(pathname, {
-				...query,
-				pageNo: page.current,
-				pageSize: page.pageSize
+			history.push({
+				pathname,
+				query: {
+					...query,
+					pageNo: page.current,
+					pageSize: page.pageSize
+				}
 			})
 		}
 	}

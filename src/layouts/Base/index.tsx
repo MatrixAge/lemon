@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { memo } from 'react'
 import { connect } from 'umi'
 import { Layout } from 'antd'
 import Sider from '../components/Sider'
@@ -39,4 +39,4 @@ const Index = (props) => {
 	)
 }
 
-export default connect(({ app }: any) => ({ app }))(Index)
+export default memo(connect(({ app }: any) => ({ app }))(Index))

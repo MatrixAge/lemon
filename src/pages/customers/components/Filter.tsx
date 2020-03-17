@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Form, Button, Input, Select, DatePicker } from 'antd'
 import Filter, { FilterItem, OptionItem } from '@/components/Filter'
 import moment from 'moment'
@@ -12,27 +12,27 @@ const { RangePicker } = DatePicker
 
 const Index = (props: any) => {
 	const { filter, onFilterChange } = props
-      const { nickname, realname, mobile, status } = filter
-      
+	const { nickname, realname, mobile, status } = filter
+
 	const [ form ] = useForm()
 	const { getFieldsValue, setFieldsValue } = form
 
-	const handleFields = (fields) => {
+	const handleSubmit = () => {
+		let fields = getFieldsValue()
+
 		const { createTime } = fields
 
 		if (createTime.length) {
 			fields.startTime = createTime[0].format('YYYY-MM-DD HH:mm:ss')
 			fields.endTime = createTime[1].format('YYYY-MM-DD HH:mm:ss')
 		}
+
 		delete fields.createTime
 
-		return fields
-	}
+		for (let i in fields) {
+			if (!fields[i]) delete fields[i]
+		}
 
-	const handleSubmit = () => {
-		let fields = getFieldsValue()
-
-		fields = handleFields(fields)
 		onFilterChange(fields)
 	}
 
@@ -40,13 +40,7 @@ const Index = (props: any) => {
 		let fields = getFieldsValue()
 
 		for (let item in fields) {
-			if ({}.hasOwnProperty.call(fields, item)) {
-				if (fields[item] instanceof Array) {
-					fields[item] = []
-				} else {
-					fields[item] = undefined
-				}
-			}
+			fields[item] = Array.isArray(fields[item]) ? [] : undefined
 		}
 
 		setFieldsValue(fields)
@@ -64,6 +58,7 @@ const Index = (props: any) => {
 
 	return (
 		<Form
+			form={form}
 			initialValues={{
 				nickname,
 				realname,
@@ -131,4 +126,4 @@ const Index = (props: any) => {
 	)
 }
 
-export default Index
+export default memo(Index)

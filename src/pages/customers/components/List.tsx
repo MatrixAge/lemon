@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Table, Tooltip, Avatar } from 'antd'
 import { AlignCenterOutlined } from '@ant-design/icons'
 import List from '@/components/List'
@@ -97,4 +97,4 @@ const Index = (props: any) => {
 	return <List {...props} columns={columns} />
 }
 
-export default Index
+export default memo(Index)

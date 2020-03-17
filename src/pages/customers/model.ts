@@ -31,8 +31,8 @@ export default modelExtend(pageModel, {
 		*query ({ payload = {} }, { call, put }) {
 			if (!payload['pageNo']) {
 				payload = { ...payload, ...qs.parse(location.search) }
-			}
-
+                  }
+                  
 			const { success, result } = yield call(Service_getContent, payload)
 
 			if (success) {

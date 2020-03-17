@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Form } from 'antd'
 import Modal from '@/components/Modal'
 import styles from './Modal.less'
@@ -11,4 +11,4 @@ const Index = (props: any) => {
 	)
 }
 
-export default Index
+export default memo(Index)

@@ -16,11 +16,7 @@ class Index extends React.PureComponent {
 	static OptionItems = OptionItems
 
 	render () {
-		return (
-			<div className='filter w_100 flex flex_wrap'>
-                        {this.props.children}
-			</div>
-		)
+		return <div className='filter w_100 flex flex_wrap'>{this.props.children}</div>
 	}
 }
 

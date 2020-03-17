@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Layout, Avatar, Dropdown, Menu } from 'antd'
 import { Icon } from '@ant-design/compatible'
 import styles from './index.less'
@@ -84,4 +84,4 @@ const Index = (props: any) => {
 	)
 }
 
-export default Index
+export default memo(Index)

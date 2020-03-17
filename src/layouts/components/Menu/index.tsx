@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { memo, Fragment, useState } from 'react'
 import { Link, withRouter } from 'umi'
 import { Menu } from 'antd'
 import { Icon } from '@ant-design/compatible'
@@ -80,4 +80,4 @@ const Index = (props: any) => {
 	)
 }
 
-export default withRouter(Index)
+export default memo(withRouter(Index))

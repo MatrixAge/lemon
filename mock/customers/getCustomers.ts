@@ -4,7 +4,7 @@ const cusomers = {
 	success: true,
 	result: {
 		data: mock.mock({
-			'list|20': [
+			'list|100': [
 				{
 					_id: '@guid',
 					avatar: 'https://unsplash.it/100/100/?',
@@ -20,7 +20,7 @@ const cusomers = {
 				}
 			]
 		}),
-		total: 20
+		total: 100
 	}
 }
 
@@ -28,6 +28,6 @@ export default {
 	[`GET /api/v1/getCustomers`] (req, res) {
 		setTimeout(() => {
 			res.status(200).json(cusomers)
-		}, Math.floor(Math.random() * 3) * 1000)
+		}, Math.floor(Math.random() * 2) * 1000)
 	}
 }

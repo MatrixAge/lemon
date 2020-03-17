@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Loader from '@/components/Loader'
 import styles from './index.less'
 
 const Index = (props: any) => {
-	const { className, children, loading , inner } = props
+	const { className, children, loading, inner } = props
 
 	return (
 		<div
@@ -19,4 +19,4 @@ const Index = (props: any) => {
 	)
 }
 
-export default Index
+export default memo(Index)

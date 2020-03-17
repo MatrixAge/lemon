@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { memo,Fragment } from 'react'
 import { Link, withRouter } from 'umi'
 import { Breadcrumb } from 'antd'
 import { pathMatchRegexp, queryAncestors } from '../Menu/helpers'
@@ -60,4 +60,4 @@ const Index = (props: any) => {
 	)
 }
 
-export default withRouter(Index)
+export default memo(withRouter(Index))

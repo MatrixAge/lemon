@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Table } from 'antd'
 
 const Index = (props: any) => {
-	const { columns, pagination, dataSource } = props
+	const { pagination } = props
 
 	return (
 		<Table
-			dataSource={dataSource}
+			{...props}
 			pagination={{
 				...pagination,
 				showTotal: (total) => `共 ${total} 条数据`
 			}}
-                  columns={columns}
-                  rowKey={(record) => record._id}
+			rowKey={(record) => record._id}
 		/>
 	)
 }
 
-export default Index
+export default memo(Index)
