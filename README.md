@@ -16,7 +16,7 @@ _<p align="center">Admin which is simple & practical for the enterprise</p>_
 
 `git clone git@github.com:MatrixAge/antos.git`
 
-## Classes
+## Preview
 
 ![preview_img](https://s1.ax1x.com/2020/04/03/GUVwSe.png)
 ![preview_img](https://s1.ax1x.com/2020/04/03/GUVByd.png)
